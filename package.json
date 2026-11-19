@@ -1,0 +1,18 @@
+{
+  "name": "@thausdesigner/create-second-brain",
+  "version": "1.0.0",
+  "description": "A fresh, bilingual Markdown second brain with Obsidian, AI handoffs and private GitHub backups.",
+  "type": "module",
+  "bin": { "create-second-brain": "bin/create-second-brain.mjs" },
+  "engines": { "node": ">=22" },
+  "files": ["bin", "lib", "scripts", "docs", "index.html", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check bin/create-second-brain.mjs && node --check lib/runtime.mjs && node --check lib/template.mjs && node --check lib/system.mjs",
+    "preview": "node scripts/preview.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "repository": { "type": "git", "url": "git+https://github.com/ThausDesigner/second-brain-starter.git" },
+  "homepage": "https://github.com/ThausDesigner/second-brain-starter",
+  "license": "MIT"
+}

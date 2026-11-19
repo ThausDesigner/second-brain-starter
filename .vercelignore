@@ -1,0 +1,6 @@
+.git
+.local
+.vercel
+dist
+node_modules
+*.tgz
