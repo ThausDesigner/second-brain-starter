@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Second Brain Starter: macOS bootstrap. Review before running.
 set -euo pipefail
-archive='https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.0.tar.gz'
+archive='https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.1.tar.gz'
 if ! command -v node >/dev/null 2>&1 || ! node -e 'process.exit(Number(process.versions.node.split(".")[0]) >= 22 ? 0 : 1)' ; then
   if [[ "$(uname -s)" != 'Darwin' ]]; then
     printf '%s\n' 'Install Node.js 22+ using https://nodejs.org/en/download or your distribution package manager, then rerun this script.' >&2

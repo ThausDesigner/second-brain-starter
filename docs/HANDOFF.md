@@ -31,13 +31,13 @@ Personal, student/researcher, creator, professional, business owner or custom. P
 With Node.js 22+ already installed (npm/npx are included):
 
 ```sh
-npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.0.tar.gz create-second-brain ./My-Second-Brain --profile custom
+npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.1.tar.gz create-second-brain ./My-Second-Brain --profile custom
 ```
 
 Prepare system apps and one selected AI in the same run (Windows/macOS):
 
 ```sh
-npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.0.tar.gz create-second-brain ./My-Second-Brain --profile custom --install-tools --ai codex
+npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.1.tar.gz create-second-brain ./My-Second-Brain --profile custom --install-tools --ai codex
 ```
 
 The GitHub archive URL means no npm account or npm-registry publication is required. The installer does not need Git to download itself. It can install Git afterward through the system package manager.
@@ -45,13 +45,13 @@ The GitHub archive URL means no npm account or npm-registry publication is requi
 Windows bootstrap, including Node.js LTS if needed (PowerShell, WinGet required):
 
 ```powershell
-& ([scriptblock]::Create((Invoke-RestMethod "https://raw.githubusercontent.com/ThausDesigner/second-brain-starter/v1.0.0/scripts/install.ps1"))) -Profile custom
+& ([scriptblock]::Create((Invoke-RestMethod "https://raw.githubusercontent.com/ThausDesigner/second-brain-starter/v1.0.1/scripts/install.ps1"))) -Profile custom
 ```
 
 macOS bootstrap (Homebrew must be installed first):
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/ThausDesigner/second-brain-starter/v1.0.0/scripts/install.sh -o /tmp/second-brain-install.sh && bash /tmp/second-brain-install.sh --profile custom
+curl -fsSL https://raw.githubusercontent.com/ThausDesigner/second-brain-starter/v1.0.1/scripts/install.sh -o /tmp/second-brain-install.sh && bash /tmp/second-brain-install.sh --profile custom
 ```
 
 Review public scripts before running. OS permissions, login, MFA, cloud sync completion and organization policies cannot be bypassed. CLI AI packages are installed only if selected. You do not need all three AI providers.
@@ -81,7 +81,7 @@ Backup includes allowlisted text notes and system files only, up to 2 MiB per fi
 To test recovery into a new, empty folder:
 
 ```sh
-npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.0.tar.gz create-second-brain ./Recovered-Brain --restore YOUR-USERNAME/my-second-brain --yes
+npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.1.tar.gz create-second-brain ./Recovered-Brain --restore YOUR-USERNAME/my-second-brain --yes
 ```
 
 No existing vault is overwritten. Restore checks file hashes from the snapshot manifest. A failed or diverging Git push stops; there is no force-push. Deleted paths are not automatically purged from Git history. Account failures after generation preserve the vault; retry backup from inside it rather than rerunning the generator.

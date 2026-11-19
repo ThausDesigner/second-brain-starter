@@ -8,7 +8,7 @@ import { scaffold } from '../lib/template.mjs';
 import { installTools, installAI } from '../lib/system.mjs';
 import { backup, restore, doctor } from '../lib/runtime.mjs';
 
-const help = `Second Brain Starter 1.0.0
+const help = `Second Brain Starter 1.0.1
 
 create-second-brain [folder] [options]
   --name "Your name"       Personalize the initial profile

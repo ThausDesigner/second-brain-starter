@@ -4,7 +4,7 @@
 
 A fresh, customizable English-language second brain made of Markdown notes, reusable templates and AI workflows. Use Obsidian to navigate it, a folder-aware AI to work with it, Google Drive to sync the notes and a separate private GitHub repository for recoverable snapshots.
 
-**[Open the setup & handoff page](https://second-brain-starter.vercel.app)** · **[Download the complete ZIP](https://second-brain-starter.vercel.app/second-brain-starter.zip)** · **[Full text installation guide](docs/HANDOFF.md)**
+**[Open the setup & handoff page](https://second-brain-starter-sigma.vercel.app)** · **[Download the complete ZIP](https://second-brain-starter-sigma.vercel.app/second-brain-starter.zip)** · **[Full text installation guide](docs/HANDOFF.md)**
 
 The visual guide defaults to English and offers a Portuguese toggle. The vault, CLI, templates and workflows are English. This is a clean starter, with no personal notes or customer information.
 
@@ -32,7 +32,7 @@ Profiles only suggest areas and onboarding questions. They do not lock functiona
 Already have **Node.js 22 or later**, including npm/npx?
 
 ```sh
-npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.0.tar.gz create-second-brain
+npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.1.tar.gz create-second-brain
 ```
 
 The wizard asks for a new folder, name, profile, first focus, optional AI CLI, system tools and optional private GitHub backup. It never overwrites a nonempty destination. System prompts and account sign-ins may still be required.
@@ -40,7 +40,7 @@ The wizard asks for a new folder, name, profile, first focus, optional AI CLI, s
 One explicit command to create a custom brain, install system tools and install one AI on Windows/macOS:
 
 ```sh
-npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.0.tar.gz create-second-brain ./My-Second-Brain --profile custom --install-tools --ai codex
+npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.1.tar.gz create-second-brain ./My-Second-Brain --profile custom --install-tools --ai codex
 ```
 
 Replace `codex` with `claude`, `gemini` or `all`; use `none` to skip AI installation. You only need one AI. With `--yes`, unanswered wizard fields use defaults; OS approvals and explicit account authentication are not bypassed. Without flags, system tools and AI installs are opt-in choices.
@@ -54,7 +54,7 @@ Review scripts before running them. Bootstrap installs Node.js if missing or old
 **Windows 10/11, PowerShell, WinGet/App Installer required:**
 
 ```powershell
-& ([scriptblock]::Create((Invoke-RestMethod "https://raw.githubusercontent.com/ThausDesigner/second-brain-starter/v1.0.0/scripts/install.ps1"))) -Profile custom
+& ([scriptblock]::Create((Invoke-RestMethod "https://raw.githubusercontent.com/ThausDesigner/second-brain-starter/v1.0.1/scripts/install.ps1"))) -Profile custom
 ```
 
 Optional Windows bootstrap arguments: `-Destination "G:\My Drive\My-Second-Brain" -AI codex -InstallTools`. Drive must already be signed in for a Drive destination to exist.
@@ -62,7 +62,7 @@ Optional Windows bootstrap arguments: `-Destination "G:\My Drive\My-Second-Brain
 **macOS, Homebrew already installed:**
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/ThausDesigner/second-brain-starter/v1.0.0/scripts/install.sh -o /tmp/second-brain-install.sh && bash /tmp/second-brain-install.sh --profile custom
+curl -fsSL https://raw.githubusercontent.com/ThausDesigner/second-brain-starter/v1.0.1/scripts/install.sh -o /tmp/second-brain-install.sh && bash /tmp/second-brain-install.sh --profile custom
 ```
 
 The macOS bootstrap uses Homebrew `node@24` if an acceptable Node.js is missing. Update this maintained LTS floor as upstream support changes. Linux users install prerequisites manually, then use the direct npm command without `--install-tools`.
@@ -151,7 +151,7 @@ Backups cover allowlisted text notes and system files only, up to 2 MiB each. At
 Test recovery into a separate, new/empty folder:
 
 ```sh
-npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.0.tar.gz create-second-brain ./Recovered-Brain --restore YOUR-USERNAME/my-second-brain --yes
+npx --yes --package=https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.1.tar.gz create-second-brain ./Recovered-Brain --restore YOUR-USERNAME/my-second-brain --yes
 ```
 
 Restore validates hashes in the snapshot manifest and never overwrites a nonempty folder. No force-push, silent conflict resolution or scheduled backup is used. Deleted files remain in Git history; only the manifest's current files are restored. A backup is a snapshot, not continuous sync. If backup fails after generation, keep the created vault and retry its backup command.

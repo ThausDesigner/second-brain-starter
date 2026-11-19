@@ -9,7 +9,7 @@ const stage = join(root, '.local', `release-${randomUUID()}`);
 const dist = join(root, 'dist');
 await fs.mkdir(stage, { recursive: true });
 await scaffold(join(stage, 'vault'), { profile: 'custom' });
-for (const path of ['bin', 'lib', 'scripts', 'docs', 'test', 'package.json', 'package-lock.json', 'README.md', 'LICENSE', 'index.html', 'vercel.json', '.github']) {
+for (const path of ['bin', 'lib', 'scripts', 'docs', 'test', 'package.json', 'package-lock.json', 'README.md', 'LICENSE', 'index.html', 'vercel.json', '.github', '.gitignore', '.vercelignore']) {
   try { await fs.cp(join(root, path), join(stage, 'installer', path), { recursive: true, errorOnExist: true, force: false }); }
   catch (error) { if (error.code !== 'ENOENT') throw error; }
 }
@@ -53,5 +53,5 @@ await fs.mkdir(dist, { recursive: true });
 await fs.writeFile(join(dist, 'second-brain-starter.zip'), archive);
 await fs.writeFile(join(dist, 'second-brain-starter.zip.sha256'), `${hash}  second-brain-starter.zip\n`);
 await fs.copyFile(join(root, 'index.html'), join(dist, 'index.html'));
-await fs.writeFile(join(dist, 'release.json'), JSON.stringify({ version: '1.0.0', files: entries.length, bytes: archive.length, sha256: hash }, null, 2));
+await fs.writeFile(join(dist, 'release.json'), JSON.stringify({ version: '1.0.1', files: entries.length, bytes: archive.length, sha256: hash }, null, 2));
 console.log(JSON.stringify({ directory: dist, archive: 'second-brain-starter.zip', entries: entries.length, bytes: archive.length, sha256: hash }));

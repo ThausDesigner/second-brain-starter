@@ -5,7 +5,7 @@ import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { scaffold, profiles } from '../lib/template.mjs';
-import { collectSnapshot, backup, restore, safePath, validateRepo } from '../lib/runtime.mjs';
+import { collectSnapshot, backup, restore, safePath, validateRepo, assertPrivateRepository } from '../lib/runtime.mjs';
 
 const temp = await fs.mkdtemp(join(tmpdir(), 'second-brain-tests-'));
 process.env.SECOND_BRAIN_BACKUP_ROOT = join(temp, 'local-backups');
@@ -124,4 +124,11 @@ test('paths and repository identifiers reject traversal, credential URLs and opt
   for (const value of ['../escape', '/absolute', '.', '..']) assert.throws(() => safePath(resolve(temp), value), /Unsafe/);
   for (const value of ['https://user:token@github.com/a/b', '--public', '../a', 'a/b.git', 'a/b/c']) assert.throws(() => validateRepo(value), /OWNER\/REPO/);
   assert.equal(validateRepo('someone/my-second-brain'), 'someone/my-second-brain');
+});
+
+test('personal backups reject public repositories, forks and archived destinations', () => {
+  assert.throws(() => assertPrivateRepository({ private: false, fork: false }), /PRIVATE/);
+  assert.throws(() => assertPrivateRepository({ private: true, fork: true }), /PRIVATE/);
+  assert.throws(() => assertPrivateRepository({ private: true, fork: false, archived: true }), /archived/);
+  assert.doesNotThrow(() => assertPrivateRepository({ private: true, fork: false, archived: false }));
 });

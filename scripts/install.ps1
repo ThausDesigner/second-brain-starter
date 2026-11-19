@@ -9,7 +9,7 @@ param(
   [switch]$Yes
 )
 $ErrorActionPreference = 'Stop'
-$BrainArchive = 'https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.0.tar.gz'
+$BrainArchive = 'https://github.com/ThausDesigner/second-brain-starter/archive/refs/tags/v1.0.1.tar.gz'
 function Update-BrainPath {
   $env:Path = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Environment]::GetEnvironmentVariable('Path','User') + ';' + $env:Path
 }

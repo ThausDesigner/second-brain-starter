@@ -25,10 +25,10 @@
 <div class="principles"><span data-text="principle1">FILES OVER SILOS</span><span data-text="principle2">CONTEXT OVER REPETITION</span><span data-text="principle3">START SMALL. MAKE IT YOURS.</span></div>
 <div class="layout" id="guide"><aside class="sidebar"><p data-text="guideLabel">THE FIELD GUIDE</p><nav aria-label="Setup guide" id="navigation"></nav><p class="sidebar-note" data-text="sideNote">Start with the basics. Add structure when it earns its place.</p></aside><div class="content" id="sections"></div></div>
 </main>
-<footer><span>Second Brain Starter · v1.0.0 · MIT</span><span data-text="footer">Built to be yours. Share the starter, keep your own notes private.</span><a href="https://github.com/ThausDesigner/second-brain-starter">Source on GitHub</a></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer><span>Second Brain Starter · v1.0.1 · MIT</span><span data-text="footer">Built to be yours. Share the starter, keep your own notes private.</span><a href="https://github.com/ThausDesigner/second-brain-starter">Source on GitHub</a></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 const repo='https://github.com/ThausDesigner/second-brain-starter';
-const release='v1.0.0';
+const release='v1.0.1';
 const tarball=repo+'/archive/refs/tags/'+release+'.tar.gz';
 const baseCommand='npx --yes --package='+tarball+' create-second-brain';
 let language='en',profile='personal',platform='windows';
@@ -101,7 +101,7 @@ function render(){
  updateCommands();
  document.querySelectorAll('.copy').forEach(button=>button.textContent=t.copy);
  try{localStorage.setItem('second-brain-guide-language',language)}catch{}
- if(location.protocol==='file:')document.querySelectorAll('.download').forEach(link=>{link.href='https://second-brain-starter.vercel.app/second-brain-starter.zip';link.removeAttribute('download')});
+ if(location.protocol==='file:')document.querySelectorAll('.download').forEach(link=>{link.href='https://second-brain-starter-sigma.vercel.app/second-brain-starter.zip';link.removeAttribute('download')});
  observer.disconnect();document.querySelectorAll('.section').forEach(section=>observer.observe(section));
 }
 function sources(){return '<section class="section" id="sources"><h2>'+(language==='en'?'Official references':'Referências oficiais')+'</h2><p class="profile-note">'+(language==='en'?'Setup references checked November 18, 2026. Vendor requirements can change.':'Referências conferidas em 18 de novembro de 2026. Os requisitos podem mudar.')+'</p><div class="sources">'+[['Obsidian sync guide','https://help.obsidian.md/sync-notes'],['Google Drive: streaming & mirroring','https://support.google.com/drive/answer/13401938'],['Google Drive: offline files','https://support.google.com/drive/answer/2375012'],['Node.js downloads','https://nodejs.org/en/download'],['npm exec / npx','https://docs.npmjs.com/cli/v11/commands/npm-exec/'],['GitHub CLI: authentication','https://cli.github.com/manual/gh_auth_login'],['GitHub CLI: private repositories','https://cli.github.com/manual/gh_repo_create'],['WinGet installation','https://learn.microsoft.com/en-us/windows/package-manager/winget/install'],['Homebrew','https://brew.sh'],['Codex CLI','https://developers.openai.com/codex/cli'],['Claude Code setup','https://code.claude.com/docs/en/setup'],['Gemini CLI installation','https://geminicli.com/docs/get-started/installation/']].map(([title,url])=>'<a href="'+url+'" target="_blank" rel="noopener">'+title+'</a>').join('')+'</div></section>'}
